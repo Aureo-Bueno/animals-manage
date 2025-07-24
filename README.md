@@ -1,5 +1,29 @@
 # React + TypeScript + Vite
 
+## Screenshots & Documentation
+
+Add here screenshots and images to document your code and show how the application looks.
+
+### Code Documentation
+Add screenshots or images that explain important parts of your code:
+
+```markdown
+![Code Documentation](./public/carbon.png)
+```
+
+Replace the path and filename with your image. Place your images in the `public/` folder or another location in your project.
+
+### Application UI
+Add screenshots showing the application's interface:
+
+```markdown
+![Application UI](./public/image.png)
+```
+
+Again, adjust the path according to where you save your image.
+
+---
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
