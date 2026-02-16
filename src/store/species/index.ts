@@ -1,11 +1,4 @@
-import { Store } from '@tanstack/react-store';
-
-// Initial species list
-const initialSpecies = ['Dog', 'Cat'];
-
-export const speciesStore = new Store({
-  species: initialSpecies,
-});
+import { speciesStore } from "./store";
 
 export const addSpecies = (newSpecies: string) => {
   speciesStore.setState((state) => {

@@ -1,20 +1,4 @@
-import { Store } from '@tanstack/react-store';
-
-export type Animal = {
-  id: number;
-  name: string;
-  species: string;
-};
-
-const initialAnimals: Animal[] = [
-  { id: 1, name: 'Rex', species: 'Dog' },
-  { id: 2, name: 'Mimi', species: 'Cat' },
-];
-
-export const animalStore = new Store({
-  animals: initialAnimals,
-  nextId: 3,
-});
+import { animalStore } from "./store";
 
 export const addAnimal = (name: string, species: string) => {
   animalStore.setState((state) => ({
