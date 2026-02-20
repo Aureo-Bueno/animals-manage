@@ -42,5 +42,3 @@ export function AnimalList({ onEdit, onDelete }: AnimalListProps): JSX.Element {
     </S.ListWrapper>
   );
 }
-
-export default AnimalList;

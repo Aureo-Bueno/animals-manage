@@ -3,8 +3,8 @@ import * as S from "./styles";
 import type { Animal } from "../../store/animal/types";
 import { useSpecies } from "../../hooks/use-species";
 import { AnimalForm } from "../animal-form";
-import AnimalList from "../animal-list";
 import { useAnimal } from "../../hooks/use-animal";
+import { AnimalList } from "../animal-list";
 
 export function AnimalManager(): JSX.Element {
   const { count, addAnimal, deleteAnimal, updateAnimal } = useAnimal();
