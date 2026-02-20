@@ -3,7 +3,7 @@ import type { AnimalListProps } from "./types";
 import * as S from "./styles";
 import { useAnimal } from "../../hooks/use-animal";
 
-function AnimalList({ onEdit, onDelete }: AnimalListProps): JSX.Element {
+export function AnimalList({ onEdit, onDelete }: AnimalListProps): JSX.Element {
   const { count, animals } = useAnimal();
   return (
     <S.ListWrapper>

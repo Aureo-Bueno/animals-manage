@@ -1,91 +1,160 @@
-# React + TypeScript + Vite
+# Animals Manage
 
-## Screenshots & Documentation
+Manage animals and species with a clean UI built in React + TypeScript + Vite.
 
-Add here screenshots and images to document your code and show how the application looks.
+**Screenshot**
+![Application UI](docs/screen.png)
 
-### Code Documentation
-Add screenshots or images that explain important parts of your code:
+**Tests**
+Commands:
+- `yarn test`
+- `yarn test:coverage`
 
-
-![Code Documentation](public/carbon.png)
-
-Replace the path and filename with your image. Place your images in the `public/` folder or another location in your project.
-
-### Application UI
-Add screenshots showing the application's interface:
-
-
-![Application UI](public/image.png)
-
-Again, adjust the path according to where you save your image.
-
----
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Coverage (2026-02-20):
+```text
+-------------------------------|---------|----------|---------|---------|-------------------
+File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------------|---------|----------|---------|---------|-------------------
+All files                      |   97.64 |    92.59 |   96.61 |   97.88 |                   
+ src                           |     100 |      100 |     100 |     100 |                   
+  App.tsx                      |     100 |      100 |     100 |     100 |                   
+ src/components/animal-form    |     100 |      100 |     100 |     100 |                   
+  index.tsx                    |     100 |      100 |     100 |     100 |                   
+  styles.ts                    |     100 |      100 |     100 |     100 |                   
+ src/components/animal-list    |     100 |      100 |     100 |     100 |                   
+  index.tsx                    |     100 |      100 |     100 |     100 |                   
+  styles.ts                    |     100 |      100 |     100 |     100 |                   
+ src/components/animal-manager |   97.33 |    83.33 |   97.05 |   97.29 |                   
+  index.tsx                    |   94.73 |    83.33 |   88.88 |   94.59 | 79-80             
+  styles.ts                    |     100 |      100 |     100 |     100 |                   
+ src/hooks/use-animal          |     100 |      100 |     100 |     100 |                   
+  index.ts                     |     100 |      100 |     100 |     100 |                   
+ src/hooks/use-species         |     100 |      100 |     100 |     100 |                   
+  index.ts                     |     100 |     100  |     100 |     100 |                   
+ src/store/animal              |     100 |      100 |     100 |     100 |                   
+  index.ts                     |     100 |      100 |     100 |     100 |                   
+  initial-state.ts             |     100 |      100 |     100 |     100 |                   
+  store.ts                     |     100 |      100 |     100 |     100 |                   
+ src/store/species             |      75 |       50 |      40 |   76.92 |                   
+  index.ts                     |   66.66 |       50 |      40 |   66.66 | 8,13-14           
+  initial-state.ts             |     100 |      100 |     100 |     100 |                   
+  store.ts                     |     100 |      100 |     100 |     100 |                   
+ src/styles                    |     100 |      100 |     100 |     100 |                   
+  GlobalStyle.ts               |     100 |      100 |     100 |     100 |                   
+  theme.ts                     |     100 |      100 |     100 |     100 |                   
+ src/test                      |     100 |      100 |     100 |     100 |                   
+  reset-stores.ts              |     100 |      100 |     100 |     100 |                   
+  test-utils.tsx               |     100 |      100 |     100 |     100 |                   
+-------------------------------|---------|----------|---------|---------|-------------------
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Commit Message Pattern**
+This project uses Conventional Commits and validates messages with commitlint (via Husky).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Template:
+```text
+type(scope): short summary
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+[optional body]
+
+[optional footer(s)]
 ```
+
+Example (paste):
+```text
+feat(animal): add species selector
+```
+
+**Git Hooks (Husky + Commitlint)**
+The hooks run automatically on commit:
+- `pre-commit`: runs `yarn test`
+- `commit-msg`: validates the message with commitlint
+
+If hooks are not active yet:
+```bash
+yarn install
+yarn prepare
+```
+
+**Project Structure**
+```text
+src
+├── assets
+│   └── react.svg
+├── components
+│   ├── animal-form
+│   │   ├── index.tsx
+│   │   ├── styles.ts
+│   │   └── types.ts
+│   ├── animal-list
+│   │   ├── animal-list.test.tsx
+│   │   ├── index.tsx
+│   │   ├── styles.ts
+│   │   └── types.ts
+│   └── animal-manager
+│       ├── animal-manager.test.tsx
+│       ├── index.tsx
+│       └── styles.ts
+├── hooks
+│   ├── use-animal
+│   │   └── index.ts
+│   └── use-species
+│       └── index.ts
+├── store
+│   ├── animal
+│   │   ├── index.ts
+│   │   ├── initial-state.ts
+│   │   ├── store.ts
+│   │   └── types.ts
+│   └── species
+│       ├── index.ts
+│       ├── initial-state.ts
+│       ├── store.ts
+│       └── types.ts
+├── styles
+│   ├── GlobalStyle.ts
+│   ├── styled.d.ts
+│   └── theme.ts
+├── test
+│   ├── jest.d.ts
+│   ├── reset-stores.ts
+│   ├── setupTests.ts
+│   └── test-utils.tsx
+├── App.test.tsx
+├── App.tsx
+├── main.tsx
+└── vite-env.d.ts
+```
+
+**Libraries**
+Dependencies:
+- `@tanstack/react-store`
+- `react`
+- `react-dom`
+- `styled-components`
+
+Dev dependencies:
+- `@commitlint/cli`
+- `@commitlint/config-conventional`
+- `@eslint/js`
+- `@testing-library/dom`
+- `@testing-library/jest-dom`
+- `@testing-library/react`
+- `@testing-library/user-event`
+- `@types/jest`
+- `@types/mocha`
+- `@types/react`
+- `@types/react-dom`
+- `@vitejs/plugin-react`
+- `eslint`
+- `eslint-plugin-react-hooks`
+- `eslint-plugin-react-refresh`
+- `globals`
+- `husky`
+- `identity-obj-proxy`
+- `jest`
+- `jest-environment-jsdom`
+- `ts-jest`
+- `typescript`
+- `typescript-eslint`
+- `vite`

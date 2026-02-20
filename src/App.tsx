@@ -1,9 +1,9 @@
 import { ThemeProvider } from "styled-components";
-import AnimalManager from "./components/animal-manager";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { theme } from "./styles/theme";
+import { AnimalManager } from "./components/animal-manager";
 
-function App() {
+export function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -11,5 +11,3 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;

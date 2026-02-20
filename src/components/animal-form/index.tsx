@@ -3,7 +3,7 @@ import type { AnimalFormProps } from "./types";
 import * as S from "./styles";
 import { useSpecies } from "../../hooks/use-species";
 
-function AnimalForm({
+export function AnimalForm({
   form,
   editId,
   addingSpecies,
@@ -99,4 +99,3 @@ function AnimalForm({
     </S.Form>
   );
 }
-export default AnimalForm;

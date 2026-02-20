@@ -1,15 +1,14 @@
 import { useState, type JSX } from "react";
-import AnimalForm from "../animal-form";
-import AnimalList from "../animal-list";
 import * as S from "./styles";
-import { addAnimal, deleteAnimal, updateAnimal } from "../../store/animal";
 import type { Animal } from "../../store/animal/types";
-import { useAnimal } from "../../hooks/use-animal";
 import { useSpecies } from "../../hooks/use-species";
+import { AnimalForm } from "../animal-form";
+import AnimalList from "../animal-list";
+import { useAnimal } from "../../hooks/use-animal";
 
-function AnimalManager(): JSX.Element {
-  const { count } = useAnimal();
-  const { species, addSpecie } = useSpecies();
+export function AnimalManager(): JSX.Element {
+  const { count, addAnimal, deleteAnimal, updateAnimal } = useAnimal();
+  const { species, addSpecies } = useSpecies();
   const [form, setForm] = useState<{ name: string; species: string }>({
     name: "",
     species: "",
@@ -42,7 +41,7 @@ function AnimalManager(): JSX.Element {
 
   const handleAddSpecies = () => {
     if (newSpecies && !species.includes(newSpecies)) {
-      addSpecie(newSpecies);
+      addSpecies(newSpecies);
       setForm((f) => ({ ...f, species: newSpecies }));
     }
     setNewSpecies("");
@@ -90,5 +89,3 @@ function AnimalManager(): JSX.Element {
     </S.Page>
   );
 }
-
-export default AnimalManager;

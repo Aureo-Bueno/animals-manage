@@ -3,3 +3,5 @@ export type Animal = {
   name: string;
   species: string;
 };
+
+export type State = { animals: Array<Animal>; nextId: number }
