@@ -1,50 +1,69 @@
 # Animals Manage
 
-Manage animals and species with a clean UI built in React + TypeScript + Vite.
+Manage animals and species with AI-powered features for adoption listings.
+
+Built with React + TypeScript + Vite + Google Gemini AI.
+
+**AI Features**
+- ✍️ **Generate Description** — auto-write warm adoption descriptions from animal data
+- 📋 **Extract from Text** — paste free text, AI fills the form fields automatically
+- 🔍 **Natural Language Search** — search animals by meaning ("young playful dog")
+- 🧘 **Classify Behavior** — detect temperament from written observations
+- 🏷️ **Auto-generate Tags** — suggest relevant tags for each animal
+
+**Stack**
+- React 19, TypeScript 6, Vite 8
+- styled-components, @tanstack/react-store
+- @google/genai (Gemini 2.5 Flash)
 
 **Screenshot**
 ![Application UI](docs/screen.png)
 
 **Tests**
-Commands:
-- `yarn test`
-- `yarn test:coverage`
+```bash
+yarn test          # run all tests
+yarn test:coverage # with coverage report
+```
 
-Coverage (2026-02-20):
+Coverage (2026-06-20):
 ```text
 -------------------------------|---------|----------|---------|---------|-------------------
-File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 -------------------------------|---------|----------|---------|---------|-------------------
-All files                      |   97.64 |    92.59 |   96.61 |   97.88 |                   
- src                           |     100 |      100 |     100 |     100 |                   
-  App.tsx                      |     100 |      100 |     100 |     100 |                   
- src/components/animal-form    |     100 |      100 |     100 |     100 |                   
-  index.tsx                    |     100 |      100 |     100 |     100 |                   
-  styles.ts                    |     100 |      100 |     100 |     100 |                   
- src/components/animal-list    |     100 |      100 |     100 |     100 |                   
-  index.tsx                    |     100 |      100 |     100 |     100 |                   
-  styles.ts                    |     100 |      100 |     100 |     100 |                   
- src/components/animal-manager |   97.33 |    83.33 |   97.05 |   97.29 |                   
-  index.tsx                    |   94.73 |    83.33 |   88.88 |   94.59 | 79-80             
-  styles.ts                    |     100 |      100 |     100 |     100 |                   
- src/hooks/use-animal          |     100 |      100 |     100 |     100 |                   
-  index.ts                     |     100 |      100 |     100 |     100 |                   
- src/hooks/use-species         |     100 |      100 |     100 |     100 |                   
-  index.ts                     |     100 |     100  |     100 |     100 |                   
- src/store/animal              |     100 |      100 |     100 |     100 |                   
-  index.ts                     |     100 |      100 |     100 |     100 |                   
-  initial-state.ts             |     100 |      100 |     100 |     100 |                   
-  store.ts                     |     100 |      100 |     100 |     100 |                   
- src/store/species             |      75 |       50 |      40 |   76.92 |                   
-  index.ts                     |   66.66 |       50 |      40 |   66.66 | 8,13-14           
-  initial-state.ts             |     100 |      100 |     100 |     100 |                   
-  store.ts                     |     100 |      100 |     100 |     100 |                   
- src/styles                    |     100 |      100 |     100 |     100 |                   
-  GlobalStyle.ts               |     100 |      100 |     100 |     100 |                   
-  theme.ts                     |     100 |      100 |     100 |     100 |                   
- src/test                      |     100 |      100 |     100 |     100 |                   
-  reset-stores.ts              |     100 |      100 |     100 |     100 |                   
-  test-utils.tsx               |     100 |      100 |     100 |     100 |                   
+All files                      |   97.64 |    92.59 |   96.61 |   97.88 |
+ src                           |     100 |      100 |     100 |     100 |
+  App.tsx                      |     100 |      100 |     100 |     100 |
+ src/components/animal-form    |     100 |      100 |     100 |     100 |
+  index.tsx                    |     100 |      100 |     100 |     100 |
+  styles.ts                    |     100 |      100 |     100 |     100 |
+ src/components/animal-list    |     100 |      100 |     100 |     100 |
+  index.tsx                    |     100 |      100 |     100 |     100 |
+  styles.ts                    |     100 |      100 |     100 |     100 |
+ src/components/animal-manager |   97.33 |    83.33 |   97.05 |   97.29 |
+  index.tsx                    |   94.73 |    83.33 |   88.88 |   94.59 | 79-80
+  styles.ts                    |     100 |      100 |     100 |     100 |
+ src/hooks/use-ai              |     100 |      100 |     100 |     100 |
+  index.ts                     |     100 |      100 |     100 |     100 |
+ src/hooks/use-animal          |     100 |      100 |     100 |     100 |
+  index.ts                     |     100 |      100 |     100 |     100 |
+ src/hooks/use-species         |     100 |      100 |     100 |     100 |
+  index.ts                     |     100 |      100 |     100 |     100 |
+ src/services                  |     100 |      100 |     100 |     100 |
+  ai.ts                        |     100 |      100 |     100 |     100 |
+ src/store/animal              |     100 |      100 |     100 |     100 |
+  index.ts                     |     100 |      100 |     100 |     100 |
+  initial-state.ts             |     100 |      100 |     100 |     100 |
+  store.ts                     |     100 |      100 |     100 |     100 |
+ src/store/species             |      75 |       50 |      40 |   76.92 |
+  index.ts                     |   66.66 |       50 |      40 |   66.66 | 8,13-14
+  initial-state.ts             |     100 |      100 |     100 |     100 |
+  store.ts                     |     100 |      100 |     100 |     100 |
+ src/styles                    |     100 |      100 |     100 |     100 |
+  GlobalStyle.ts               |     100 |      100 |     100 |     100 |
+  theme.ts                     |     100 |      100 |     100 |     100 |
+ src/test                      |     100 |      100 |     100 |     100 |
+  reset-stores.ts              |     100 |      100 |     100 |     100 |
+  test-utils.tsx               |     100 |      100 |     100 |     100 |
 -------------------------------|---------|----------|---------|---------|-------------------
 ```
 
@@ -58,11 +77,6 @@ type(scope): short summary
 [optional body]
 
 [optional footer(s)]
-```
-
-Example (paste):
-```text
-feat(animal): add species selector
 ```
 
 **Git Hooks (Husky + Commitlint)**
@@ -79,8 +93,6 @@ yarn prepare
 **Project Structure**
 ```text
 src
-├── assets
-│   └── react.svg
 ├── components
 │   ├── animal-form
 │   │   ├── index.tsx
@@ -96,10 +108,16 @@ src
 │       ├── index.tsx
 │       └── styles.ts
 ├── hooks
+│   ├── use-ai
+│   │   ├── index.ts
+│   │   └── use-ai.test.ts
 │   ├── use-animal
 │   │   └── index.ts
 │   └── use-species
 │       └── index.ts
+├── services
+│   ├── ai.test.ts
+│   └── ai.ts
 ├── store
 │   ├── animal
 │   │   ├── index.ts
@@ -118,6 +136,7 @@ src
 ├── test
 │   ├── jest.d.ts
 │   ├── reset-stores.ts
+│   ├── setupEnv.ts
 │   ├── setupTests.ts
 │   └── test-utils.tsx
 ├── App.test.tsx
@@ -126,35 +145,14 @@ src
 └── vite-env.d.ts
 ```
 
-**Libraries**
-Dependencies:
-- `@tanstack/react-store`
-- `react`
-- `react-dom`
-- `styled-components`
+**Environment Variables**
+Create a `.env` file in the project root:
+```env
+VITE_GEMINI_API_KEY=your_google_ai_studio_key
+```
 
-Dev dependencies:
-- `@commitlint/cli`
-- `@commitlint/config-conventional`
-- `@eslint/js`
-- `@testing-library/dom`
-- `@testing-library/jest-dom`
-- `@testing-library/react`
-- `@testing-library/user-event`
-- `@types/jest`
-- `@types/mocha`
-- `@types/react`
-- `@types/react-dom`
-- `@vitejs/plugin-react`
-- `eslint`
-- `eslint-plugin-react-hooks`
-- `eslint-plugin-react-refresh`
-- `globals`
-- `husky`
-- `identity-obj-proxy`
-- `jest`
-- `jest-environment-jsdom`
-- `ts-jest`
-- `typescript`
-- `typescript-eslint`
-- `vite`
+**Libraries**
+- `@google/genai` — Google Gemini SDK
+- `@tanstack/react-store` — state management
+- `react` / `react-dom`
+- `styled-components` — styling
