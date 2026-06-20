@@ -17,4 +17,8 @@ export const theme = {
     sm: '0 1px 2px rgba(0, 0, 0, 0.08)',
     md: '0 6px 16px rgba(0, 0, 0, 0.12)',
   },
+  fonts: {
+    heading: "'Outfit', sans-serif",
+    body: "'Work Sans', sans-serif",
+  },
 } as const;

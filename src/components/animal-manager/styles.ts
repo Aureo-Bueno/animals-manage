@@ -1,9 +1,9 @@
 import styled, { keyframes } from "styled-components";
 
-export const rise = keyframes`
+const rise = keyframes`
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -30,7 +30,7 @@ export const Card = styled.section`
   border-radius: ${({ theme }) => theme.radii.lg};
   background: ${({ theme }) => theme.colors.surface};
   border: 1px solid ${({ theme }) => theme.colors.border};
-  box-shadow: ${({ theme }) => theme.shadow.md};
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   animation: ${rise} 0.5s ease-out;
 
   @media (max-width: 900px) {
@@ -44,25 +44,30 @@ export const Header = styled.header`
   align-items: flex-end;
   gap: ${({ theme }) => theme.spacing(3)};
   flex-wrap: wrap;
+  padding-bottom: ${({ theme }) => theme.spacing(2)};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  margin-bottom: ${({ theme }) => theme.spacing(1)};
 `;
 
 export const Title = styled.h2`
   margin: 0;
-  font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
   letter-spacing: -0.02em;
+  font-family: ${({ theme }) => theme.fonts.heading};
   color: ${({ theme }) => theme.colors.text};
 `;
 
 export const Subtitle = styled.p`
   margin: ${({ theme }) => theme.spacing(0.5)} 0 0;
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   max-width: 44ch;
+  opacity: 0.8;
 `;
 
 export const Stat = styled.div`
-  padding: ${({ theme }) => theme.spacing(2)};
-  min-width: 140px;
+  padding: ${({ theme }) => theme.spacing(1.5)} ${({ theme }) => theme.spacing(2.5)};
+  min-width: 120px;
   text-align: center;
   border-radius: ${({ theme }) => theme.radii.md};
   background: ${({ theme }) => theme.colors.background};
@@ -71,7 +76,7 @@ export const Stat = styled.div`
 
 export const StatLabel = styled.span`
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.primary};
@@ -80,14 +85,14 @@ export const StatLabel = styled.span`
 
 export const StatValue = styled.span`
   display: block;
-  margin-top: ${({ theme }) => theme.spacing(0.5)};
-  font-size: 2rem;
+  margin-top: ${({ theme }) => theme.spacing(0.25)};
+  font-size: 1.8rem;
   font-weight: 700;
+  font-family: ${({ theme }) => theme.fonts.heading};
   color: ${({ theme }) => theme.colors.text};
 `;
 
 export const Content = styled.div`
-  margin-top: ${({ theme }) => theme.spacing(3)};
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: ${({ theme }) => theme.spacing(3)};
@@ -101,5 +106,20 @@ export const Panel = styled.section`
   background: ${({ theme }) => theme.colors.background};
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.md};
-  padding: ${({ theme }) => theme.spacing(3)};
+  padding: ${({ theme }) => theme.spacing(2.5)};
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.primary};
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  padding: ${({ theme }) => theme.spacing(1)} ${({ theme }) => theme.spacing(1.5)};
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: ${({ theme }) => theme.radii.sm};
+  color: #991b1b;
+  font-size: 0.82rem;
+  margin-bottom: ${({ theme }) => theme.spacing(1.5)};
 `;

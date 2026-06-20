@@ -1,11 +1,9 @@
 import { animalStore } from "./store";
+import type { AnimalData } from "./types";
 
-export const addAnimal = (name: string, species: string) => {
+export const addAnimal = (data: AnimalData) => {
   animalStore.setState((state) => ({
-    animals: [
-      ...state.animals,
-      { id: state.nextId, name, species },
-    ],
+    animals: [...state.animals, { ...data, id: state.nextId }],
     nextId: state.nextId + 1,
   }));
 };
@@ -17,11 +15,11 @@ export const deleteAnimal = (id: number) => {
   }));
 };
 
-export const updateAnimal = (id: number, name: string, species: string) => {
+export const updateAnimal = (id: number, data: Partial<AnimalData>) => {
   animalStore.setState((state) => ({
     ...state,
     animals: state.animals.map((a) =>
-      a.id === id ? { ...a, name, species } : a
+      a.id === id ? { ...a, ...data } : a
     ),
   }));
 };

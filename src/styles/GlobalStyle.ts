@@ -1,35 +1,29 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
   *, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: ${({ theme }) => theme.fonts.body};
+    background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
-    background: linear-gradient(
-      180deg,
-      ${({ theme }) => theme.colors.background} 0%,
-      ${({ theme }) => theme.colors.surface} 70%
-    );
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
   }
 
-  #root {
-    min-height: 100vh;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${({ theme }) => theme.fonts.heading};
+    line-height: 1.2;
   }
 
-  input,
-  select,
-  button,
-  textarea {
-    font: inherit;
-    color: inherit;
-  }
-
-  button {
-    background: none;
+  input, select, textarea, button {
+    font-family: inherit;
   }
 `;

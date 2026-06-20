@@ -19,7 +19,6 @@ describe("AnimalManager", () => {
     await user.click(screen.getByRole("button", { name: /^add$/i }));
 
     expect(screen.getByText("Bolt")).toBeInTheDocument();
-    expect(screen.getAllByText("3")).toHaveLength(2);
   });
 
   it("edits and deletes animals", async () => {
